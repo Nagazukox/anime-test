@@ -103,7 +103,7 @@ driver.quit()
 
 
 #Guardar la lista en un archivo json
-with open("lista.json", "w") as archivo:
+with open("./lista.json", "w") as archivo:
     json.dump(lista, archivo, indent=4)
 
 # Llamar al script json-db.py que se encuentra en esta misma carpeta

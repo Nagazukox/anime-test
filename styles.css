@@ -48,4 +48,48 @@ header {
   border-radius: 3%;
   margin-left: 20px;
   transition: all 0.3s;
+  opacity: 0.6;
+}
+
+.divTitle {
+  position: relative;
+  background-color: rgb(0, 0, 0, 80%);
+  color: rgb(219, 32, 44, 95%);
+  font-size: 25px;
+  bottom: 65px;
+
+  padding-right: 20px;
+  width: 399px;
+  transition: opacity 0.1s;
+  opacity: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+span {
+  position: relative;
+  margin-left: 25px;
+  letter-spacing: 1px;
+}
+
+.anime img {
+  object-fit: cover;
+  transition: transform 0.3s 0.1s;
+}
+
+.anime-img {
+  transform: scale(1);
+}
+
+.anime-hover {
+  transform: scale(1.1);
+}
+
+.anime:hover img {
+  transform: scale(1.1);
+}
+
+.anime:hover .divTitle {
+  transition: opacity 0.1s 0.2s;
+  opacity: 1;
 }

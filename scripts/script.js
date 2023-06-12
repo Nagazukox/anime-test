@@ -1,5 +1,8 @@
 const container = document.querySelector('.container');
 
+let timeoutIdTitle;
+let timeoutIdImg
+
 fetch('scripts/lista.json')
   .then(response => response.json())
   .then(data => {
@@ -16,21 +19,21 @@ fetch('scripts/lista.json')
       a.href = item.enlace;
       a.target = '_blank';
 
+      const divTitle = document.createElement('div');
+      divTitle.setAttribute('class', 'divTitle');
+
+      const span = document.createElement('span');
+      // Limitar la longitud del título a un máximo de 20 caracteres
+      const maxTitleLength = 35;
+      span.textContent = item.titulo.length > maxTitleLength ? item.titulo.slice(0, maxTitleLength) + '...' : item.titulo + " ";
+      span.textContent = span.textContent + " " + item.capitulo;
+
+      divTitle.appendChild(span);
+
       a.appendChild(img);
       div.appendChild(a);
+      div.appendChild(divTitle);
       container.appendChild(div);
 
-      // Agregar eventos 'mouseenter' y 'mouseleave' a las imágenes
-      img.addEventListener('mouseenter', e => {
-        console.log('Encima de la imagen de: ' + e.target.alt);
-        img.classList.add('anime-hover');
-        img.classList.remove('anime-img');
-      });
-
-      img.addEventListener('mouseleave', e => {
-        console.log('Fuera de la imagen de: ' + e.target.alt);
-        img.classList.remove('anime-hover');
-        img.classList.add('anime-img');
-      });
     });
   });
